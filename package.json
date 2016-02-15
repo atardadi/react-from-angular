@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel react/js -d react/lib --presets react"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-react": "^6.5.0",
     "http-server": "^0.8.5"
   }
 }

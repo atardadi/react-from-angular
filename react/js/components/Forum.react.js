@@ -1,21 +1,20 @@
 var Forum = React.createClass({
 	getInitialState: function() {
 		return {
-			allAnswers: {
-	      "1": {  
-	          body: "Isn't that about time travel?",
-	          correct: false
-	      },
-	      "2": {
-	          body: "React and Flux are a tool and methodologies for building the front end of web applications.",
-	          correct: false
-	      },
-	      "3": {
-	          body: "React is a synonym for 'respond'",
-	          correct: false
-		    }
-		  }
+			allAnswers: ForumStore.getAnswers()
     };
+	},
+	componentDidMount: function() {
+		ForumStore.addChangeListener(this._onChange);
+	},
+	componentWillUnmount: function() {
+		ForumStore.removeListener(this._onChange);
+	},	
+	_onChange: function() {
+		this.setState({allAnswers: ForumStore.getAnswers()});
+	},
+	_onAddAnswer: function(answerText) {
+		ForumActions.addNewAnswer(answerText);
 	},
 	render: function() {
 		return (
@@ -26,7 +25,7 @@ var Forum = React.createClass({
 					<hr />
 					<ForumAnswers allAnswers={this.state.allAnswers} />
 					<h4>Add an answer</h4>
-					<ForumAddAnswerBox />
+					<ForumAddAnswerBox onAddAnswer={this._onAddAnswer} />
 				</div>
 			</div>
 		);

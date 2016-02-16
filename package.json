@@ -4,12 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel react/js -d react/lib --presets react"
+    "start": "watchify react/js/app.js -o react/lib/app.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-preset-react": "^6.5.0",
-    "http-server": "^0.8.5"
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "http-server": "^0.8.5",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "flux": "^2.1.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "browserify": {
+    "transform": [["babelify", { "presets": ["react"] }]]
   }
 }

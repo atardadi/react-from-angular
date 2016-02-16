@@ -1,3 +1,5 @@
+var React = require('react');
+
 var ForumHeader = React.createClass({
 	render: function() {
 		
@@ -14,3 +16,5 @@ var ForumHeader = React.createClass({
 		);
 	}
 });
+
+module.exports = ForumHeader;

@@ -1,9 +1,10 @@
+var React = require('react');
+var ForumAnswer = require('./ForumAnswer.react');
+var ForumActions = require('../actions/ForumActions');
+
 var ForumAnswers = React.createClass({
 	_onMarkCorrect: function(id) {
-		ForumDispatcher.dispatch({
-			actionType: ForumConstants.FORUM_ANSWER_MARKED_CORRECT,
-			id: id
-		});
+		ForumActions.markAnswerCorrect(id);
 	},
 	render: function() {
 		var allAnswers = this.props.allAnswers;
@@ -19,3 +20,5 @@ var ForumAnswers = React.createClass({
 		);
 	}
 });
+
+module.exports = ForumAnswers;

@@ -1,3 +1,5 @@
+var React = require('react');
+
 var ForumAnswer = React.createClass({
 	propTypes: {
     answer: React.PropTypes.object.isRequired,
@@ -33,3 +35,5 @@ var ForumAnswer = React.createClass({
 		);
 	}
 });
+
+module.exports = ForumAnswer;
